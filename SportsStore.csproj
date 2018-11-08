@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\models\model.module.ts" />
+    <None Remove="ClientApp\src\app\models\product.model.ts" />
+    <None Remove="ClientApp\src\app\models\rating.model.ts" />
+    <None Remove="ClientApp\src\app\models\repository.ts" />
+    <None Remove="ClientApp\src\app\models\supplier.model.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\model.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\product.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\rating.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\repository.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\supplier.model.ts" />
+  </ItemGroup>
+
+</Project>

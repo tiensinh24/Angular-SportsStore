@@ -1,0 +1,18 @@
+﻿@section Scripts{ 
+    <script src="~/dist/runtime.js" asp-append-version="true"></script>
+    <script src="~/dist/polyfills.js" asp-append-version="true"></script>
+    <script src="~/dist/vendor.js" asp-append-version="true"></script>
+    <script src="~/dist/main.js" asp-append-version="true"></script>
+}
+
+<div class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">@(ViewBag.Message ?? "SPORTS STORE")</a>
+</div>
+
+@*<div id="data" class="p-1 bg-warning">
+    @Json.Serialize(Model)
+</div>*@
+
+<div class="p-1">
+    <app-root></app-root>
+</div>
