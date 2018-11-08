@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 using Microsoft.EntityFrameworkCore;
+using SportsStore.Models.BindingTargets;
 
 namespace SportsStore.Controllers
 {
@@ -91,5 +92,26 @@ namespace SportsStore.Controllers
                 return query;
             }
         }
+        
+        [HttpPost]
+        public IActionResult CreateProduct([FromBody] ProductData pData)
+        {
+            if (ModelState.IsValid)
+            {
+                Product p = pData.Product;
+                if (p.Supplier != null && p.Supplier.SupplierId != 0)
+                {
+                    context.Attach(p.Supplier);
+                }
+                context.Add(p);
+                context.SaveChanges();
+                return Ok(p.ProductId);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
     }
 }
